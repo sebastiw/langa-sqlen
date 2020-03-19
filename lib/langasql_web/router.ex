@@ -2,7 +2,7 @@ defmodule LangasqlWeb.Router do
   use LangasqlWeb, :router
 
   pipeline :api do
-    plug LangasqlWeb.Context
+#    plug LangasqlWeb.Context
     plug :accepts, ["json"]
   end
 
