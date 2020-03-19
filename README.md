@@ -1,19 +1,9 @@
-# Langasql
+# LangaSQL
 
-To start your Phoenix server:
+## Building & Running
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+It should be as simple as `make`.  It builds and starts the postgres
+database in a docker container.  Then it builds the Elixir
+application, and migrates the schemas, and then starts.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+You can now visit http://localhost:4000/graphiql

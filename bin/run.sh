@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -xeuo pipefail
 
 mix deps.get
 
