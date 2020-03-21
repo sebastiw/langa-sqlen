@@ -37,7 +37,7 @@ defmodule Langasql.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
       {:absinthe_phoenix, "~> 1.4.0"},
-      {:ecto_sql, "~> 3.0"},
+      {:ecto_sql, "~> 3.3.4"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
