@@ -9,8 +9,8 @@ defmodule LangasqlWeb.Router do
   scope "/" do
     pipe_through :api
 
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: LangasqlWeb.GraphQL
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Langasql.GraphQL
 
-    forward "/", Absinthe.Plug, schema: LangasqlWeb.GraphQL
+    forward "/", Absinthe.Plug, schema: Langasql.GraphQL
   end
 end

@@ -1,4 +1,4 @@
-defmodule LangasqlWeb.GraphQL do
+defmodule Langasql.GraphQL do
   use Absinthe.Schema
 
   # import_types(Absinthe.Type.Custom)
