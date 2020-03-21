@@ -4,7 +4,7 @@ set -xeuo pipefail
 
 mix deps.get
 
-mix ecto.setup
+mix ecto.reset
 
 mix test
 

@@ -4,6 +4,7 @@ defmodule Langasql.Absinthe.User do
   object :user do
     field :id, :id
     field :display_name, :string
+    field :attributes, list_of(:attribute)
   end
 
   object :user_queries do
