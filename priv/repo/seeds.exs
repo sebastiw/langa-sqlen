@@ -13,4 +13,4 @@
 alias Langasql.Repo
 alias Langasql.Ecto.User
 
-Repo.insert!(%User{display_name: "Seba"})
+Repo.insert!(%User{display_name: Faker.Name.name()})
