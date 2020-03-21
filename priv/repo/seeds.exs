@@ -9,3 +9,8 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Langasql.Repo
+alias Langasql.Ecto.User
+
+Repo.insert!(%User{display_name: "Seba"})

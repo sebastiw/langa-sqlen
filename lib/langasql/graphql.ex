@@ -3,24 +3,13 @@ defmodule Langasql.GraphQL do
 
   # import_types(Absinthe.Type.Custom)
 
-  @desc "An item"
-  object :item do
-    field :id, :id
-    field :name, :string
+  import_types(Langasql.Absinthe.User)
+
+  query name: :query_api do
+    import_fields(:user_queries)
   end
 
-  # Example data
-  @items %{
-    "foo" => %{id: "foo", name: "Foo"},
-    "bar" => %{id: "bar", name: "Bar"}
-  }
-
-  query do
-    field :item, :item do
-      arg :id, non_null(:id)
-      resolve fn %{id: item_id}, _ ->
-        {:ok, @items[item_id]}
-      end
-    end
+  mutation do
+    import_fields(:user_mutations)
   end
 end

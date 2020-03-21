@@ -4,8 +4,7 @@ set -xeuo pipefail
 
 mix deps.get
 
-mix ecto.create
-mix ecto.migrate
+mix ecto.setup
 
 mix test
 
