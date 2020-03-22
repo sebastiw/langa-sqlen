@@ -5,7 +5,6 @@ defmodule Langasql.Absinthe.User do
     field :id, :id
     field :display_name, :string
     field :attributes, list_of(:attribute)
-    field :share_views, list_of(:share_view)
     field :contact_views, list_of(:contact_view)
   end
 

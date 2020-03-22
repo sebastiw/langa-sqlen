@@ -36,6 +36,9 @@ alias Langasql.Ecto.ContactView
 Repo.insert!(%ShareView{attribute_id: attr1,
                         tag: "Work"
                        })
+Repo.insert!(%ShareView{attribute_id: attr1,
+                        tag: "Home"
+                       })
 Repo.insert!(%ShareView{attribute_id: attr2,
                         tag: "Work"
                        })

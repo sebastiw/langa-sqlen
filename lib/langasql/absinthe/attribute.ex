@@ -3,9 +3,10 @@ defmodule Langasql.Absinthe.Attribute do
 
   object :attribute do
     field :id, :id
-    field :user, :user
     field :name, :string
     field :value, :string
+    field :user, :user
+    field :share_views, list_of(:share_view)
   end
 
   object :attribute_queries do

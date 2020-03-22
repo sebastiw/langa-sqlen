@@ -17,8 +17,7 @@ defmodule Langasql.Repo.Migrations.CreateInitialTables do
     end
 
     create table("share_views") do
-      add :user_id, references("users", on_delete: :delete_all)
-      add :attribute_id, references("attributes", on_delete: :nilify_all)
+      add :attribute_id, references("attributes")
       add :tag, :string
 
       timestamps()

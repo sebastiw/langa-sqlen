@@ -7,6 +7,12 @@ database in a docker container.  Then it builds the Elixir
 application, and migrates the schemas, and then starts.
 
 You can now visit http://localhost:4000/graphiql
+or post graphql querys via curl:
+
+    $ curl 'http://localhost:4000/' -H 'content-type: application/json' -d @- <<EOF
+    heredoc>  {"query": "query { users { id } }"}
+    heredoc>EOF
+    {"data":{"users":[{"id":"1"},{"id":"2"},{"id":"3"}]}}
 
 ## Schemas
 

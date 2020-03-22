@@ -3,8 +3,6 @@ defmodule Langasql.Absinthe.ShareView do
 
   object :share_view do
     field :id, :id
-    field :user, :user
-    field :attribute, :attribute
     field :tag, :string
   end
 

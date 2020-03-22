@@ -3,11 +3,13 @@ defmodule Langasql.Ecto.Attribute do
   import Ecto.Changeset
 
   alias Langasql.Ecto.User
+  alias Langasql.Ecto.ShareView
 
   schema "attributes" do
     field :name, :string
     field :value, :string
 
+    has_many :share_views, ShareView
     belongs_to :user, User
 
     timestamps()

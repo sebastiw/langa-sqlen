@@ -10,8 +10,8 @@ defmodule Langasql.Ecto.User do
     field :display_name, :string
 
     has_many :attributes, Attribute
-    has_many :share_views, ShareView
     has_many :contact_views, ContactView
+    has_many :tags, through: [:attributes, :tag]
 
     timestamps()
   end
