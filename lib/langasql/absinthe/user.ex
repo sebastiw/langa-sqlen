@@ -1,5 +1,6 @@
 defmodule Langasql.Absinthe.User do
   use Absinthe.Schema.Notation
+  alias Langasql.Resolver.User
 
   @desc "A User in the system."
   object :user do
@@ -23,16 +24,28 @@ defmodule Langasql.Absinthe.User do
 
     @desc "List all users"
     field :users, list_of(:user) do
-      resolve(&Langasql.Resolver.User.all/3)
+      resolve(&User.all/3)
     end
 
     @desc "Fetch a single user"
     field :user, :user do
       arg :id, non_null(:id)
-      resolve(&Langasql.Resolver.User.find/3)
+      resolve(&User.find/3)
     end
   end
 
   object :user_mutations do
+
+    @desc "Insert a new user"
+    field :create_user, :user do
+      arg(:display_name, :string)
+      resolve(&User.create/3)
+    end
+
+    @desc "Remove a user"
+    field :delete_user, :user do
+      arg(:id, :id)
+      resolve(&User.delete/3)
+    end
   end
 end
