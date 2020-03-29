@@ -8,24 +8,24 @@ defmodule Langasql.Repo.Migrations.CreateInitialTables do
       timestamps()
     end
 
-    create table("attributes") do
+    create table("properties") do
       add :user_id, references("users", on_delete: :delete_all)
-      add :name, :string
+      add :key, :string
       add :value, :string
 
       timestamps()
     end
 
-    create table("share_views") do
-      add :attribute_id, references("attributes")
+    create table("tags") do
+      add :property_id, references("properties")
       add :tag, :string
 
       timestamps()
     end
 
-    create table("contact_views") do
+    create table("shared_information") do
       add :user_id, references("users", on_delete: :delete_all)
-      add :attribute_id, references("attributes", on_delete: :delete_all)
+      add :property_id, references("properties", on_delete: :delete_all)
       add :comment, :string
 
       timestamps()

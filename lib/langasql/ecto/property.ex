@@ -1,15 +1,15 @@
-defmodule Langasql.Ecto.Attribute do
+defmodule Langasql.Ecto.Property do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias Langasql.Ecto.User
-  alias Langasql.Ecto.ShareView
+  alias Langasql.Ecto.Tag
 
-  schema "attributes" do
-    field :name, :string
+  schema "properties" do
+    field :key, :string
     field :value, :string
 
-    has_many :share_views, ShareView
+    has_many :tags, Tag
     belongs_to :user, User
 
     timestamps()
@@ -17,6 +17,6 @@ defmodule Langasql.Ecto.Attribute do
 
   def changeset(object, params \\ %{}) do
     object
-    |> cast(params, [:name, :value])
+    |> cast(params, [:key, :value])
   end
 end

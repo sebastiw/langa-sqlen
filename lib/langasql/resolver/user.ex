@@ -4,7 +4,7 @@ defmodule Langasql.Resolver.User do
   def all(_, _, _) do
     {:ok,
      Langasql.Repo.all(User)
-     |> Langasql.Repo.preload([ attributes: [:share_views],
-                              contact_views: [attribute: [:user]]])}
+     |> Langasql.Repo.preload([ properties: [:tags],
+                              contacts: [property: [:user]]])}
   end
 end

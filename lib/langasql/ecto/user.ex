@@ -2,16 +2,15 @@ defmodule Langasql.Ecto.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Langasql.Ecto.Attribute
-  alias Langasql.Ecto.ShareView
-  alias Langasql.Ecto.ContactView
+  alias Langasql.Ecto.Property
+  alias Langasql.Ecto.SharedInfo
 
   schema "users" do
     field :display_name, :string
 
-    has_many :attributes, Attribute
-    has_many :contact_views, ContactView
-    has_many :tags, through: [:attributes, :tag]
+    has_many :properties, Property
+    has_many :contacts, SharedInfo
+    has_many :tags, through: [:properties, :tag]
 
     timestamps()
   end

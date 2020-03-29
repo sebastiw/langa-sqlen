@@ -1,15 +1,15 @@
-defmodule Langasql.Ecto.ContactView do
+defmodule Langasql.Ecto.SharedInfo do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias Langasql.Ecto.User
-  alias Langasql.Ecto.Attribute
+  alias Langasql.Ecto.Property
 
-  schema "contact_views" do
+  schema "shared_information" do
     field :comment, :string
 
     belongs_to :user, User
-    belongs_to :attribute, Attribute
+    belongs_to :property, Property
 
     timestamps()
   end

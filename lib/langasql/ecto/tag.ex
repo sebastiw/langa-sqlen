@@ -1,13 +1,13 @@
-defmodule Langasql.Ecto.ShareView do
+defmodule Langasql.Ecto.Tag do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Langasql.Ecto.Attribute
+  alias Langasql.Ecto.Property
 
-  schema "share_views" do
+  schema "tags" do
     field :tag, :string
 
-    belongs_to :attribute, Attribute
+    belongs_to :property, Property
 
     timestamps()
   end
