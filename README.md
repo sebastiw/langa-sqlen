@@ -18,3 +18,5 @@ or post graphql querys via curl:
 
 Schemas and migrations are stored in `priv/repo/migrations/` and seeds
 (test data) in `priv/repo/seeds.exs`.
+
+To connect to the database use `make postgres-connect` after starting the db.

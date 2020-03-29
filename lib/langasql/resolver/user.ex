@@ -10,9 +10,12 @@ defmodule Langasql.Resolver.User do
      ])}
   end
 
-  def find(%{id: id}, _, _) do
+  def find(_, %{id: id}, _) do
     {:ok,
-     Langasql.Repo.find(User, id)
-    }
+     Langasql.Repo.get(User, id)
+     |> Langasql.Repo.preload([
+       :properties, :tags,
+       contacts: [property: [:user]]
+     ])}
   end
 end
