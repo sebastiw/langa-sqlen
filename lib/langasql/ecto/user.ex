@@ -10,7 +10,7 @@ defmodule Langasql.Ecto.User do
 
     has_many :properties, Property
     has_many :contacts, SharedInfo
-    has_many :tags, through: [:properties, :tag]
+    has_many :tags, through: [:properties, :tags]
 
     timestamps()
   end
