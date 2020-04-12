@@ -12,10 +12,7 @@ defmodule Langasql.Absinthe.Property do
     @desc "The field value."
     field :value, :string
 
-    @desc "The owner of the property."
-    field :user, :user
-
-    @desc "Number of different groups that the property belongs to."
-    field :tags, list_of(:tag)
+    @desc "An optional comment on this data from the receiver."
+    field :comment, :string
   end
 end

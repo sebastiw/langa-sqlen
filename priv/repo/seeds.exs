@@ -32,7 +32,18 @@ alias Langasql.Ecto.SharedInfo
                                               key: "Home address",
                                               value: Faker.Address.street_address()
                                              })
-
+%Property{id: attr4} = Repo.insert!(%Property{user_id: user2,
+                                              key: "Company name",
+                                              value: Faker.Company.name()
+                                             })
+%Property{id: attr5} = Repo.insert!(%Property{user_id: user2,
+                                              key: "Work phone",
+                                              value: Faker.Phone.EnGb.number()
+                                             })
+%Property{id: attr6} = Repo.insert!(%Property{user_id: user2,
+                                              key: "Home address",
+                                              value: Faker.Address.street_address()
+                                             })
 Repo.insert!(%Tag{property_id: attr1,
                   tag: "Work"
                  })
@@ -43,6 +54,18 @@ Repo.insert!(%Tag{property_id: attr2,
                   tag: "Work"
                  })
 Repo.insert!(%Tag{property_id: attr3,
+                  tag: "Home"
+                 })
+Repo.insert!(%Tag{property_id: attr4,
+                  tag: "Work"
+                 })
+Repo.insert!(%Tag{property_id: attr4,
+                  tag: "Home"
+                 })
+Repo.insert!(%Tag{property_id: attr5,
+                  tag: "Work"
+                 })
+Repo.insert!(%Tag{property_id: attr6,
                   tag: "Home"
                  })
 

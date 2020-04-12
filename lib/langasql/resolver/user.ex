@@ -1,23 +1,14 @@
 defmodule Langasql.Resolver.User do
-  alias Langasql.Ecto.User
   alias Langasql.Repo
 
+  alias Langasql.Ecto.User
+
   def all(_, _, _) do
-    {:ok,
-     Repo.all(User)
-     |> Repo.preload([
-       :properties, :tags,
-       contacts: [property: [:user]]
-     ])}
+    {:ok, Repo.all(User)}
   end
 
   def find(_, %{id: id}, _) do
-    {:ok,
-     Repo.get(User, id)
-     |> Repo.preload([
-       :properties, :tags,
-       contacts: [property: [:user]]
-     ])}
+    {:ok, Repo.get(User, id)}
   end
 
   def create(_, args, _) do

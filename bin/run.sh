@@ -8,4 +8,5 @@ mix ecto.reset
 
 mix test
 
-mix phx.server
+# mix phx.server
+iex -S mix phx.server
