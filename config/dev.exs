@@ -5,7 +5,7 @@ config :langasql, Langasql.Repo,
   username: "postgres",
   password: "postgres",
   database: "langasql_dev",
-  hostname: "localhost",
+  hostname: "postgress",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

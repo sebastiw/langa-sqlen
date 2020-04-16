@@ -1,12 +1,10 @@
 #!/bin/bash
-
 set -xeuo pipefail
-
 mix deps.get
-
 mix ecto.reset
-
 mix test
-
-# mix phx.server
-iex -S mix phx.server
+if [ -f /.dockerenv ]; then # Docker environment
+    mix phx.server
+else
+    iex -S mix phx.server
+fi

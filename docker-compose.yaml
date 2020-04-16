@@ -1,0 +1,17 @@
+version: '3.0'
+services:
+  postgress:
+    hostname: postgress
+    build:
+      context: .
+      dockerfile: Dockerfile.sql
+    ports:
+      - 5432:5432
+  elixir:
+    hostname: elixir-web
+    build: .
+    ports:
+      - 4000:4000
+    environment:
+      - PGHOST=postgress      
+      
