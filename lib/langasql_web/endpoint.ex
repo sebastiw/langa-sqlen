@@ -2,11 +2,7 @@ defmodule LangasqlWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :langasql
   use Absinthe.Phoenix.Endpoint
 
-  origin =
-    case Mix.env() do
-      :prod -> ["https://freinans.com"]
-      _ -> false
-    end
+  origin = Application.compile_env(:langasql, [:url, :host], false)
 
   socket "/socket", LangasqlWeb.UserSocket,
     websocket: [check_origin: origin],
