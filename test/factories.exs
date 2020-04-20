@@ -12,23 +12,23 @@ defmodule Langasql.Factory do
   end
 
   def property_factory do
-    type = sequence(:property_key, ["email", "company", "tel"])
+    type = sequence(:property_type, ["email", "company", "tel"])
 
     %Property{
-      key: build_key(type)
+      label: build_label(type)
       value: build_value(type),
       user: build(:user)
     }
   end
 
-  def build_key("email") do
-    sequence(:email_key, ["Work email", "E-mail", "Private email"])
+  def build_label("email") do
+    sequence(:email_label, ["Work email", "E-mail", "Private email"])
   end
-  def build_key("company") do
+  def build_label("company") do
     "Company"
   end
-  def build_key("tel") do
-    sequence(:telephone_key, ["Mobile", "Work phone", "Private number", "Home nr", "Cell"])
+  def build_label("tel") do
+    sequence(:telephone_label, ["Mobile", "Work phone", "Private number", "Home nr", "Cell"])
   end
 
   def build_value("email") do

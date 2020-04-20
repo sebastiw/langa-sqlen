@@ -7,7 +7,7 @@ defmodule Langasql.Absinthe.Property do
     field :id, :id
 
     @desc "The field name."
-    field :key, :string
+    field :label, :string
 
     @desc "The field value."
     field :value, :string

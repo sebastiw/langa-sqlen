@@ -10,7 +10,7 @@ defmodule Langasql.Repo.Migrations.CreateInitialTables do
 
     create table("properties") do
       add :user_id, references("users", on_delete: :delete_all)
-      add :key, :string
+      add :label, :string
       add :value, :string
 
       timestamps()

@@ -21,27 +21,27 @@ alias Langasql.Ecto.SharedInfo
 %User{id: user3} = Repo.insert!(%User{display_name: Faker.Name.name()})
 
 %Property{id: attr1} = Repo.insert!(%Property{user_id: user1,
-                                              key: "Company name",
+                                              label: "Company name",
                                               value: Faker.Company.name()
                                              })
 %Property{id: attr2} = Repo.insert!(%Property{user_id: user1,
-                                              key: "Work phone",
+                                              label: "Work phone",
                                               value: Faker.Phone.EnGb.number()
                                              })
 %Property{id: attr3} = Repo.insert!(%Property{user_id: user1,
-                                              key: "Home address",
+                                              label: "Home address",
                                               value: Faker.Address.street_address()
                                              })
 %Property{id: attr4} = Repo.insert!(%Property{user_id: user2,
-                                              key: "Company name",
+                                              label: "Company name",
                                               value: Faker.Company.name()
                                              })
 %Property{id: attr5} = Repo.insert!(%Property{user_id: user2,
-                                              key: "Work phone",
+                                              label: "Work phone",
                                               value: Faker.Phone.EnGb.number()
                                              })
 %Property{id: attr6} = Repo.insert!(%Property{user_id: user2,
-                                              key: "Home address",
+                                              label: "Home address",
                                               value: Faker.Address.street_address()
                                              })
 Repo.insert!(%Tag{property_id: attr1,

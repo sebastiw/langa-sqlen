@@ -6,7 +6,7 @@ defmodule Langasql.Ecto.Property do
   alias Langasql.Ecto.Tag
 
   schema "properties" do
-    field :key, :string
+    field :label, :string
     field :value, :string
 
     has_many :tags, Tag
@@ -17,6 +17,6 @@ defmodule Langasql.Ecto.Property do
 
   def changeset(object, params \\ %{}) do
     object
-    |> cast(params, [:key, :value])
+    |> cast(params, [:label, :value])
   end
 end
