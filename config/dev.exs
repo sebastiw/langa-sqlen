@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :langasql, Langasql.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "langasql_dev",
-  hostname: "postgress",
+  username: System.get_env("DB_USERNAME", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  database: System.get_env("DB_DATABASE", "langasql_dev"),
+  hostname: System.get_env("DB_HOSTNAME", "localhost"),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -16,7 +16,7 @@ config :langasql, Langasql.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :langasql, LangasqlWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: String.to_integer(System.get_env("PORT", "4000"))],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

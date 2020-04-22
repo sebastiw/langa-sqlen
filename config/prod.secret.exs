@@ -13,9 +13,9 @@ database_url =
     """
 
 config :langasql, Langasql.Repo,
-  # ssl: true,
+  ssl: true,
   url: database_url,
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
+  pool_size: String.to_integer(System.get_env("POOL_SIZE", "10"))
 
 secret_key_base =
   System.get_env("SECRET_KEY_BASE") ||
@@ -25,5 +25,5 @@ secret_key_base =
     """
 
 config :langasql, LangasqlWeb.Endpoint,
-  http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
+  http: [:inet6, port: String.to_integer(System.get_env("PORT", "4000"))],
   secret_key_base: secret_key_base
