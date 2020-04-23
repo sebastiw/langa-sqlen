@@ -17,6 +17,6 @@ defmodule Langasql.Ecto.Property do
 
   def changeset(object, params \\ %{}) do
     object
-    |> cast(params, [:label, :value])
+    |> cast(params, [:user_id, :label, :value])
   end
 end

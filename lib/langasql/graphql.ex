@@ -15,5 +15,6 @@ defmodule Langasql.GraphQL do
   @desc "All mutations"
   mutation name: :mutation_api do
     import_fields(:user_mutations)
+    import_fields(:property_mutations)
   end
 end

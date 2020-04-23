@@ -1,5 +1,7 @@
 defmodule Langasql.Absinthe.Queries do
   use Absinthe.Schema.Notation
+
+  alias Langasql.Resolver.Property
   alias Langasql.Resolver.User
 
   object :user_queries do
@@ -24,8 +26,24 @@ defmodule Langasql.Absinthe.Queries do
 
     @desc "Remove a user"
     field :delete_user, :user do
-      arg(:id, :id)
+      arg(:id, non_null(:id))
       resolve(&User.delete/3)
+    end
+  end
+
+  object :property_mutations do
+    @desc "Add a new property to a user"
+    field :create_property, :property do
+      arg(:user_id, non_null(:id))
+      arg(:label, non_null(:string))
+      arg(:value, non_null(:string))
+      resolve(&Property.create/3)
+    end
+
+    @desc "Remove a property from a user"
+    field :delete_property, :property do
+      arg(:id, non_null(:id))
+      resolve(&Property.delete/3)
     end
   end
 end
