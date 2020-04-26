@@ -43,7 +43,7 @@ defmodule LangasqlWeb.Endpoint do
     key: "_langasql_key",
     signing_salt: "4FlJk+o3"
 
-#  plug CORSPlug
+  plug CORSPlug
 
   plug LangasqlWeb.Router
 end

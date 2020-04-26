@@ -22,6 +22,17 @@ config :langasql, LangasqlWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+# ## CORS
+#
+# Cross-origin resource sharing (CORS) is a mechanism that allows
+# restricted resources (e.g. fonts, JavaScript, etc.) on a web page to
+# be requested from another domain outside the domain from which the
+# resource originated.
+config :cors_plug,
+  # origin: ["http://localhost:9000"],
+  max_age: 86400,
+  methods: ["POST"]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
