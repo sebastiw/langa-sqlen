@@ -12,11 +12,11 @@ defmodule LangasqlWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
-  plug Plug.Static,
-    at: "/",
-    from: :langasql,
-    gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+  # plug Plug.Static,
+  #   at: "/",
+  #   from: :langasql,
+  #   gzip: false,
+  #   only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
