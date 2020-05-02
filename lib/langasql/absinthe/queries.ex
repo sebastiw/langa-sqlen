@@ -15,6 +15,12 @@ defmodule Langasql.Absinthe.Queries do
       arg :id, non_null(:id)
       resolve(&User.find/3)
     end
+
+    @desc "Fetch a users properties"
+    field :properties, list_of(:property) do
+      arg(:user_id, non_null(:id))
+      resolve(&Property.all/3)
+    end
   end
 
   object :user_mutations do
@@ -22,6 +28,14 @@ defmodule Langasql.Absinthe.Queries do
     field :create_user, :user do
       arg(:display_name, :string)
       resolve(&User.create/3)
+    end
+
+    @desc "Update a user"
+    field :update_user, :user do
+      arg(:id, non_null(:id))
+      arg(:etag, non_null(:string))
+      arg(:display_name, :string)
+      resolve(&User.update/3)
     end
 
     @desc "Remove a user"
@@ -38,6 +52,15 @@ defmodule Langasql.Absinthe.Queries do
       arg(:label, non_null(:string))
       arg(:value, non_null(:string))
       resolve(&Property.create/3)
+    end
+
+    @desc "Update a users property"
+    field :update_property, :property do
+      arg(:id, non_null(:id))
+      arg(:etag, non_null(:string))
+      arg(:label, :string)
+      arg(:value, :string)
+      resolve(&Property.update/3)
     end
 
     @desc "Remove a property from a user"

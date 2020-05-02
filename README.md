@@ -199,6 +199,51 @@ mutation {
 }
 ```
 
+For updating object, you also need specify the `etag` for the
+object. Etag is the hash of some parts of the object. This is useful
+when there are multiple requests coming in to make sure that the user
+tries to update the object he or she wants to update.
+
+Example. Imagine the following query and object
+
+```
+query {
+  user(id: "1") {
+    id, displayName, etag
+  }
+}
+```
+
+```
+{
+  "data": {
+    "user": {
+      "displayName": "Abdiel Bogan",
+      "etag": "8DFD7383AB3E6F61BAF04773E551B886E453DE8604CDC2C19B2DF7A42609BDF5",
+      "id": "1"
+    }
+  }
+}
+```
+
+If the user tries to update the `displayName` to "Greta Garbo" without
+the etag, but because of (for instance) network problems the query
+does not go through instantaniously. The user then tries with another
+name "Håkan Hemlin" instead. Both queries then go through, but because
+it's the Internet the queries might come over different routes and
+thus in different order. It is then impossible to say what the users
+intent was. With etags you make sure that the object we are trying to
+update is the object saved in the database.
+
+```
+mutation {
+  update_user(id: "2", displayName: "Greta Garbo", etag: "8DFD7383AB3E6F61BAF04773E551B886E453DE8604CDC2C19B2DF7A42609BDF5") {
+    id, etag, displayName
+  }
+}
+```
+
+
 ## Subscriptions
 
 Currently not supported within this project.

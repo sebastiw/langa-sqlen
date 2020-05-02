@@ -2,6 +2,7 @@ defmodule Langasql.Resolver.User do
   alias Langasql.Repo
 
   alias Langasql.Ecto.User
+  alias Langasql.Resolver.Misc
 
   def all(_, _, _) do
     {:ok, Repo.all(User)}
@@ -12,8 +13,18 @@ defmodule Langasql.Resolver.User do
   end
 
   def create(_, args, _) do
-    ch = User.changeset(%User{}, args)
-    Repo.insert(ch)
+    User.changeset(%User{}, args)
+    |> Repo.insert
+  end
+
+  def update(_, args, _) do
+    case Misc.get_and_check(User, args) do
+      %User{} = usr ->
+        User.changeset(usr, args)
+        |> Repo.update
+      error ->
+        error
+    end
   end
 
   def delete(_, %{id: id}, _) do

@@ -19,4 +19,8 @@ defmodule Langasql.Ecto.User do
     object
     |> cast(params, [:display_name])
   end
+
+  def hashable_keys() do
+    [:id, :display_name]
+  end
 end
