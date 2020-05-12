@@ -15,7 +15,7 @@ config :langasql, Langasql.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :langasql, LangasqlWeb.Endpoint,
+config :langasql, LangasqlWeb.Endpoint, server: true,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))],
   debug_errors: true,
   code_reloader: true,
