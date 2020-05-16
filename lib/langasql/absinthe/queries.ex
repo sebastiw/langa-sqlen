@@ -15,12 +15,6 @@ defmodule Langasql.Absinthe.Queries do
       arg :id, non_null(:id)
       resolve(&User.find/3)
     end
-
-    @desc "Fetch a users properties"
-    field :properties, list_of(:property) do
-      arg(:user_id, non_null(:id))
-      resolve(&Property.all/3)
-    end
   end
 
   object :user_mutations do

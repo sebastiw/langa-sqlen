@@ -3,10 +3,12 @@ defmodule Langasql.Resolver.Property do
   import Ecto.Query, only: [from: 2]
 
   alias Langasql.Ecto.Property
+  alias Langasql.Ecto.User
   alias Langasql.Resolver.Misc
 
-  def all(_, %{user_id: user_id} = args, _) do
-    {:ok, Repo.all(from(Property, where: [user_id: ^user_id]))}
+  def all(%User{} = user, _, _) do
+    %User{properties: properties} = Repo.preload(user, [properties: :tags])
+    {:ok, properties}
   end
 
   def create(_, args, _) do
