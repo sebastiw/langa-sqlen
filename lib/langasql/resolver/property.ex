@@ -8,6 +8,15 @@ defmodule Langasql.Resolver.Property do
 
   def all(%User{} = user, _, _) do
     %User{properties: properties} = Repo.preload(user, [properties: :tags])
+
+    # Remove extra layer of tags
+    properties =
+      Enum.map(
+        properties,
+        fn (%Property{tags: tags} = p) ->
+          %{p | tags: Enum.map(tags, &(&1.tag))}
+        end)
+
     {:ok, properties}
   end
 

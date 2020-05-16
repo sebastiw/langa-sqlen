@@ -21,6 +21,6 @@ defmodule Langasql.Absinthe.Property do
     field :etag, :string, resolve: &Misc.etag/3
 
     @desc "The property is part of the following tags"
-    field :tags, list_of(:tag)
+    field :tags, list_of(:string)
   end
 end
