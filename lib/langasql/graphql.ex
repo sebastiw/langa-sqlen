@@ -3,6 +3,7 @@ defmodule Langasql.GraphQL do
 
   import_types(Langasql.Absinthe.User)
   import_types(Langasql.Absinthe.Contact)
+  import_types(Langasql.Absinthe.CustomInfo)
   import_types(Langasql.Absinthe.Property)
   import_types(Langasql.Absinthe.Tag)
   import_types(Langasql.Absinthe.Queries)

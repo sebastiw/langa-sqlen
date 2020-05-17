@@ -1,6 +1,5 @@
 defmodule Langasql.Resolver.Property do
   alias Langasql.Repo
-  import Ecto.Query, only: [from: 2]
 
   alias Langasql.Ecto.Property
   alias Langasql.Ecto.User

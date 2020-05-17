@@ -15,7 +15,7 @@ defmodule Langasql.Absinthe.Property do
     field :value, :string
 
     @desc "An optional comment on this data from the receiver."
-    field :comment, :string
+    field :custom, :custom_info
 
     @desc "Etag of the property"
     field :etag, :string, resolve: &Misc.etag/3
