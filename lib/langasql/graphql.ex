@@ -1,6 +1,7 @@
 defmodule Langasql.GraphQL do
   use Absinthe.Schema
 
+  import_types(Langasql.Absinthe.Seal)
   import_types(Langasql.Absinthe.User)
   import_types(Langasql.Absinthe.Contact)
   import_types(Langasql.Absinthe.CustomInfo)
@@ -11,6 +12,7 @@ defmodule Langasql.GraphQL do
   @desc "All queries"
   query name: :query_api do
     import_fields(:user_queries)
+    import_fields(:seal_queries)
   end
 
   @desc "All mutations"

@@ -3,6 +3,20 @@ defmodule Langasql.Absinthe.Queries do
 
   alias Langasql.Resolver.Property
   alias Langasql.Resolver.User
+  alias Langasql.Resolver.Seal
+
+  object :seal_queries do
+    @desc "List all seals"
+    field :seals, list_of(:seal) do
+      resolve(&Seal.all/3)
+    end
+
+    @desc "Fetch a single seal"
+    field :seal, :seal do
+      arg :id, non_null(:id)
+      resolve(&Seal.find/3)
+    end
+  end
 
   object :user_queries do
     @desc "List all users"

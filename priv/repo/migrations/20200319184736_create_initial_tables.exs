@@ -2,6 +2,14 @@ defmodule Langasql.Repo.Migrations.CreateInitialTables do
   use Ecto.Migration
 
   def change do
+    create table("seals") do
+      add :name, :string
+      add :description, :text
+      add :webpage, :string
+
+      timestamps()
+    end
+
     create table("users") do
       add :display_name, :string
 

@@ -11,10 +11,18 @@
 # and so on) as they will fail if something goes wrong.
 
 alias Langasql.Repo
+alias Langasql.Ecto.Seal
 alias Langasql.Ecto.User
 alias Langasql.Ecto.Property
 alias Langasql.Ecto.Tag
 alias Langasql.Ecto.SharedInfo
+
+for _ <- 1..100 do
+    Repo.insert!(%Seal{name: Faker.Pokemon.name(),
+                       description: Faker.Lorem.paragraph(),
+                       webpage: Faker.Internet.url()
+                      })
+end
 
 %User{id: user1} = Repo.insert!(%User{display_name: Faker.Name.name()})
 %User{id: user2} = Repo.insert!(%User{display_name: Faker.Name.name()})
