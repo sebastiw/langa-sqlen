@@ -18,6 +18,7 @@ mix-build:
 mix-start: mix-build
 	_build/$(MIX_ENV)/rel/langasql/bin/langasql start
 
+start-test: postgres langasql-populate langasql
 start: postgres langasql
 
 stop: langasql-stop postgres-stop
@@ -89,6 +90,18 @@ else
 	$(NOOP)
 endif
 
+langasql-populate:
+	@docker build -f Dockerfile.populate -t "langa-populate:latest" .
+	@docker run --rm \
+	--name langa_populate \
+	--net langasql-network \
+	-e DB_USERNAME="postgres" \
+	-e DB_PASSWORD="postgres" \
+	-e DB_DATABASE="langasql_dev" \
+	-e DB_HOSTNAME="langa_db" \
+	-e DATABASE_URL="postgress://postgres:postgres@langa_db:5432/langasql_dev" \
+	-e SECRET_KEY_BASE="o5S/Xl5lCgnZKzFqj8DLhEGrFWveD9hRaLB1BEh77ke+LjWjgObjU+cXz/wQEYNm" \
+	"langa-populate:latest"
 
 .PHONY: docker-network docker-network-clean
 docker-network:
